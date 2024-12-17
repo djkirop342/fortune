@@ -3,6 +3,7 @@ import time
 
 from bs4 import BeautifulSoup
 from urllib.error import HTTPError, URLError
+from datetime import datetime
 
 luck_list = ["쥐띠", "소띠", "호랑이띠", "토끼띠", "용띠", "뱀띠", "말띠", "양띠", "원숭이띠", "닭띠", "개띠", "돼지띠"]
 headers = { "user-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" }
@@ -11,14 +12,9 @@ def crawling() :
     for item in luck_list :
         url = f"https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query={item} 운세"
         response = requests.get(url, headers=headers)
-        name = ""
-        
-        if name != item :
-            name = item
-            print(f"\n- {item}")
-        else :
-            print(f"- {item}\n")
-        
+         
+        print(f"\n- {item}")
+       
         try :
             if response.status_code == 200 :    
                 soup = BeautifulSoup(response.content, "html.parser")
@@ -36,7 +32,7 @@ def crawling() :
             print(e)
         
 if __name__ == "__main__" :
-    print("크롤링 시작!")
+    print(datetime.now().strftime("%Y년 %m월 %d일 오늘의 띠별 운세"))
     
     crawling()
     
