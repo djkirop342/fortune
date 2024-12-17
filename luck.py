@@ -28,7 +28,6 @@ def crawling() :
             
                 for dt, dd in zip(dt_tags, dd_tags) :
                     print(f"{dt.get_text()} : {dd.get_text()}")
-                    # print(f"yearOfBirth ===> {value.find("dd").get_text()}")
             else :
                 print(f"[ERROR] Failed to fetch data for {item} - Status Code: {response.status_code}")
                 
