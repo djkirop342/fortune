@@ -5,6 +5,7 @@ https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&qvt=0&query=띠�
 
 ## 설치 방법
 python3 -m venv venv
+
 source venv/bin/activate
 
 pip3 install -r requirements.txt
