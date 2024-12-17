@@ -6,7 +6,6 @@ from urllib.error import HTTPError, URLError
 
 luck_list = ["쥐띠", "소띠", "호랑이띠", "토끼띠", "용띠", "뱀띠", "말띠", "양띠", "원숭이띠", "닭띠", "개띠", "돼지띠"]
 headers = { "user-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" }
-count = 0
 
 def crawling() :
     for item in luck_list :
@@ -33,7 +32,7 @@ def crawling() :
             else :
                 print(f"[ERROR] Failed to fetch data for {item} - Status Code: {response.status_code}")
                 
-            time.sleep(1)  # 각 요청 사이에 10초 대기
+            time.sleep(1)  # 각 요청 사이에 대기 (너무 많은 요청 시 크롤링을 못함)
         except HTTPError as e:
             print(e)
         
