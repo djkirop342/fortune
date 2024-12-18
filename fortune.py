@@ -20,6 +20,11 @@ def crawling() :
         try :
             if response.status_code == 200 :    
                 soup = BeautifulSoup(response.content, "html.parser")
+                
+                fortune_text = soup.find_all("p", "_cs_fortune_text")[0].get_text()
+                print(f"메인 : {fortune_text}")
+                file.write(f"메인 : {fortune_text}\n")
+                
                 fortune_list = soup.find_all("dl", "_cs_fortune_list")[0]
                 dt_tags = fortune_list.find_all("dt")
                 dd_tags = fortune_list.find_all("dd")
